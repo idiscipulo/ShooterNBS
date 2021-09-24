@@ -17,7 +17,7 @@ func _process(delta):
 
 [sub_resource type="CubeMesh" id=2]
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="BoxShape" id=3]
 
 [node name="ItemTemplate" type="RigidBody" groups=[
 "Item",
@@ -31,4 +31,4 @@ material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )

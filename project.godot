@@ -23,6 +23,10 @@ config/icon="res://icon.png"
 
 ItemLoader="*res://Scripts/ItemLoader.gd"
 
+[display]
+
+window/stretch/aspect="keep_height"
+
 [input]
 
 move_forward={

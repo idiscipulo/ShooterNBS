@@ -57,13 +57,14 @@ func _process(delta):
 			print("Interacting...")
 			var target = reach_cast.get_collider()
 			if target.is_in_group("Item"):
-				print("ItemGround...")
+			
+				target.get_node("CollisionShape").disabled = true
+				var target_parent = target.get_parent()
+				target_parent.remove_child(target)
 				
-				target.queue_free()
-				
-				var weapon = ItemLoader.ItemTemplate.instance()
-				hand.add_child(weapon)
-				weapon.rotation = hand.rotation
+				hand.add_child(target)
+				target.rotation = hand.rotation
+				target.transform = transform.basis
 			
 	if Input.is_action_pressed("aim"):
 		hand.transform.origin = hand.transform.origin.linear_interpolate(ads_position, ads_speed * delta)
