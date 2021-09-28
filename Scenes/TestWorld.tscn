@@ -6,13 +6,13 @@
 
 [sub_resource type="CubeMesh" id=1]
 
-[sub_resource type="SpatialMaterial" id=3]
+[sub_resource type="SpatialMaterial" id=2]
 flags_world_triplanar = true
 albedo_texture = ExtResource( 3 )
 uv1_scale = Vector3( 0.5, 0.5, 0.5 )
 uv1_triplanar = true
 
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="BoxShape" id=3]
 
 [node name="TestWorld" type="Spatial"]
 
@@ -21,20 +21,20 @@ transform = Transform( 10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0, 0, 0 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Floor"]
 mesh = SubResource( 1 )
-material/0 = SubResource( 3 )
+material/0 = SubResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Floor"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Wall" type="StaticBody" parent="."]
 transform = Transform( 10, 0, 0, 0, -8.14603e-08, -10, 0, 0.5, -1.62921e-06, 0, 10, 10 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Wall"]
 mesh = SubResource( 1 )
-material/0 = SubResource( 3 )
+material/0 = SubResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Wall"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Character" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7622, 0 )
