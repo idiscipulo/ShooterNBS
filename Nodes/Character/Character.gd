@@ -56,12 +56,22 @@ func _process(delta):
 		if reach_cast.is_colliding():
 			print("Interacting...")
 			var target = reach_cast.get_collider()
-			if target.is_in_group("Item"):
 			
+			if target.is_in_group("Item"):
 				target.get_node("CollisionShape").disabled = true
 				var target_parent = target.get_parent()
 				target_parent.remove_child(target)
 				
+				var held_item = hand.get_child(0)
+				if held_item != null:
+					hand.remove_child(held_item)
+					get_tree().get_root().add_child(held_item)
+					
+					held_item.global_transform = hand.global_transform
+					held_item.transform = held_item.transform.translated(Vector3(0, 1, 0))
+					held_item.get_node("CollisionShape").disabled = false
+					held_item.drop()
+					
 				hand.add_child(target)
 				target.rotation = hand.rotation
 				target.transform = transform.basis

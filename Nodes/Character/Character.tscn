@@ -28,6 +28,7 @@ shape = SubResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 
 [node name="Camera" type="Camera" parent="RotationHelper"]
+keep_aspect = 0
 
 [node name="TextureRect" type="TextureRect" parent="RotationHelper/Camera"]
 margin_left = 500.0
