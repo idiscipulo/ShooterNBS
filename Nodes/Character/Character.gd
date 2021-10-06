@@ -68,7 +68,6 @@ func _process(delta):
 					get_tree().get_root().add_child(held_item)
 					
 					held_item.global_transform = hand.global_transform
-					held_item.transform = held_item.transform.translated(Vector3(0, 1, 0))
 					held_item.get_node("CollisionShape").disabled = false
 					held_item.drop()
 					

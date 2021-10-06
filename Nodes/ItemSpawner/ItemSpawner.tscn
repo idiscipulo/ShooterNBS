@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Nodes/ItemSpawner/ItemSpawner.gd" type="Script" id=2]
+
+[sub_resource type="BoxShape" id=1]
+
+[node name="ItemSpawner" type="RigidBody"]
+script = ExtResource( 2 )
+item_path = "res://Nodes/Items/ItemTemplate/ItemTemplate.tscn"
+
+[node name="Spatial" type="CSGCombiner" parent="."]
+
+[node name="CSGBox" type="CSGBox" parent="Spatial"]
+transform = Transform( 0.8, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="CSGBox2" type="CSGBox" parent="Spatial"]
+transform = Transform( 0.8, 0, 0, 0, 3, 0, 0, 0, 0.3, 0, 2, -0.7 )
+
+[node name="CSGBox3" type="CSGBox" parent="Spatial"]
+transform = Transform( 0.8, 0, 0, 0, 0.262584, 0.483619, 0, -0.145086, 0.875279, 0, 5.1457, 0.0493642 )
+
+[node name="CSGBox4" type="CSGBox" parent="Spatial"]
+transform = Transform( 0.9, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 4.9674, -0.885967 )
+
+[node name="SpotLight" type="SpotLight" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 0.18112, -0.983461, 0, 0.983461, 0.18112, 0, 0.996278, 0.838982 )
+light_energy = 2.0
+shadow_enabled = true
+spot_angle = 15.2
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 0.8, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="."]
+transform = Transform( 0.8, 0, 0, 0, 3, 0, 0, 0, 0.3, 0, 2, -0.7 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="."]
+transform = Transform( 0.8, 0, 0, 0, 0.262584, 0.483619, 0, -0.145086, 0.875279, 0, 5.146, 0.049 )
+shape = SubResource( 1 )
+
+[node name="Anchor" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 2.88, 0.3 )
