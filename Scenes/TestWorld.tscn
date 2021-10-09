@@ -1,49 +1,54 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Nodes/ItemSpawner/ItemSpawner.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Nodes/Doodads/ItemSpawner/ItemSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Nodes/Character/Character.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Images/tile_default.png" type="Texture" id=3]
+[ext_resource path="res://Materials/Default.tres" type="Material" id=3]
+[ext_resource path="res://Nodes/Doodads/Platform/Platform.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CubeMesh" id=1]
+size = Vector3( 100, 1, 100 )
 
-[sub_resource type="SpatialMaterial" id=2]
-flags_world_triplanar = true
-albedo_texture = ExtResource( 3 )
-uv1_scale = Vector3( 0.5, 0.5, 0.5 )
-uv1_triplanar = true
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 50, 0.5, 50 )
 
-[sub_resource type="BoxShape" id=3]
+[sub_resource type="CubeMesh" id=3]
+size = Vector3( 20, 20, 1 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 10, 10, 0.5 )
 
 [node name="TestWorld" type="Spatial"]
 
 [node name="Floor" type="StaticBody" parent="."]
-transform = Transform( 100, 0, 0, 0, 0.5, 0, 0, 0, 100, 0, 0, 0 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Floor"]
 mesh = SubResource( 1 )
-material/0 = SubResource( 2 )
+material/0 = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Floor"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Wall" type="StaticBody" parent="."]
-transform = Transform( 10, 0, 0, 0, -8.14603e-08, -10, 0, 0.5, -1.62921e-06, 0, 10, 10 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 10 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Wall"]
-mesh = SubResource( 1 )
-material/0 = SubResource( 2 )
+mesh = SubResource( 3 )
+material/0 = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Wall"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Character" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7622, 0 )
 
 [node name="ItemSpawner" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -9 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.5, -26 )
 
 [node name="ItemSpawner2" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4397, 1.5, -9 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4397, 6.5, -26 )
 
 [node name="ItemSpawner3" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.48961, 1.5, -9 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.48961, 6.5, -26 )
+
+[node name="Platform" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -15 )

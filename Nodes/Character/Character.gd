@@ -54,7 +54,6 @@ func _process(delta):
 		
 	if Input.is_action_just_pressed("interact"):
 		if reach_cast.is_colliding():
-			print("Interacting...")
 			var target = reach_cast.get_collider()
 			
 			if target.is_in_group("Item"):

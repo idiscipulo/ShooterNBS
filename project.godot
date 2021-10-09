@@ -24,10 +24,6 @@ config/name="ShooterNBS_Final"
 run/main_scene="res://Scenes/TestWorld.tscn"
 config/icon="res://icon.png"
 
-[autoload]
-
-ItemLoader="*res://Scripts/ItemLoader.gd"
-
 [display]
 
 window/stretch/aspect="keep_height"
