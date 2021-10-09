@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Materials/Default.tres" type="Material" id=1]
 [ext_resource path="res://Nodes/Doodads/ItemSpawner/ItemSpawner.gd" type="Script" id=2]
-[ext_resource path="res://Nodes/Items/TripleKnife/TripleKnife.tscn" type="PackedScene" id=3]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.75, 1, 1 )
@@ -56,10 +55,13 @@ shape = SubResource( 3 )
 [node name="Anchor" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.88, 0.3 )
 
-[node name="TripleKnife" parent="Anchor" instance=ExtResource( 3 )]
-
 [node name="SpotLight" type="SpotLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.18112, -0.983461, 0, 0.983461, 0.18112, 0, 0.996278, 0.838982 )
 light_energy = 2.0
 shadow_enabled = true
 spot_angle = 15.2
+
+[node name="RespawnTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_RespawnTimer_timeout"]

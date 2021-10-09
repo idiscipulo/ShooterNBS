@@ -57,7 +57,6 @@ func _process(delta):
 			var target = reach_cast.get_collider()
 			
 			if target.is_in_group("Item"):
-				target.get_node("CollisionShape").disabled = true
 				var target_parent = target.get_parent()
 				target_parent.remove_child(target)
 				
@@ -67,20 +66,28 @@ func _process(delta):
 					get_tree().get_root().add_child(held_item)
 					
 					held_item.global_transform = hand.global_transform
-					held_item.get_node("CollisionShape").disabled = false
 					held_item.drop()
 					
+				target.attach_to_character(self)
 				hand.add_child(target)
 				target.rotation = hand.rotation
 				target.transform = transform.basis
+	
+	if Input.is_action_just_pressed("main_action"):
+		var held_item = hand.get_child(0)
+		
+		if held_item != null:
+			held_item.main_action()
 			
+	"""		
 	if Input.is_action_pressed("aim"):
 		hand.transform.origin = hand.transform.origin.linear_interpolate(ads_position, ads_speed * delta)
 		camera.fov = lerp(camera.fov, ads_fov, ads_speed * delta)
 	else:
 		hand.transform.origin = hand.transform.origin.linear_interpolate(default_position, ads_speed * delta)
 		camera.fov = lerp(camera.fov, default_fov, ads_speed * delta)
-		
+	"""
+	
 func _physics_process(delta):
 	direction = Vector3.ZERO
 	var h_rot = global_transform.basis.get_euler().y
