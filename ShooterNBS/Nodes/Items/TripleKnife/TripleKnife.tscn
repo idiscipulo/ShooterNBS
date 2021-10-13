@@ -1,0 +1,133 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Nodes/Items/TripleKnife/TripleKnife.gd" type="Script" id=1]
+[ext_resource path="res://Materials/Default.tres" type="Material" id=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.1, 1.1, 0.7 )
+
+[node name="TripleKnife" type="RigidBody" groups=[
+"Item",
+]]
+can_sleep = false
+script = ExtResource( 1 )
+projectile_path = "res://Nodes/Items/TripleKnife/TripleKnifeProjectile.tscn"
+
+[node name="CSGCombiner" type="CSGCombiner" parent="."]
+transform = Transform( -0.3164, 0.387158, -1.91112e-07, 0.380008, 0.310557, 0.0956444, 0.074059, 0.0605237, -0.490767, 0, 0, 0 )
+
+[node name="MainBody" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 0.994094, 0.10852, 0, -0.10852, 0.994094, 0, -0.172021, 0.0703188 )
+width = 0.2
+height = 1.2
+depth = 1.2
+material = ExtResource( 2 )
+
+[node name="Sheathe" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 0.999559, -0.0289341, -0.00670655, 0.0297011, 0.973744, 0.225702, 0, -0.225801, 0.974173, 0.0122902, 0.404731, -0.351556 )
+width = 0.1
+height = 0.1
+depth = 0.3
+material = ExtResource( 2 )
+
+[node name="Guard" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 0.999559, -0.0289341, -0.00670655, 0.0297011, 0.973744, 0.225702, 0, -0.225801, 0.974173, 0.010541, 0.463599, -0.365207 )
+width = 0.14
+height = 0.04
+depth = 0.34
+material = ExtResource( 2 )
+
+[node name="Handle" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 0.999559, -0.0292155, -0.00534888, 0.0297011, 0.983216, 0.180011, 0, -0.18009, 0.98365, 0.00589518, 0.619949, -0.394251 )
+width = 0.06
+height = 1.0
+depth = 0.26
+material = ExtResource( 2 )
+
+[node name="Pommel" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 0.999559, -0.0292155, -0.00534888, 0.0297011, 0.983216, 0.180011, 0, -0.18009, 0.98365, -0.0103996, 1.16833, -0.493256 )
+width = 0.14
+height = 0.15
+depth = 0.34
+material = ExtResource( 2 )
+
+[node name="Nut" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 0.999559, -0.0292155, -0.00534888, 0.0297011, 0.983216, 0.180011, 0, -0.18009, 0.98365, -0.0122902, 1.23196, -0.495395 )
+width = 0.04
+height = 0.1
+depth = 0.04
+material = ExtResource( 2 )
+
+[node name="Sheathe2" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 0.99752, 0.0703833, 0, -0.0703833, 0.99752, 0, 0.460035, 0.00360868 )
+width = 0.1
+height = 0.1
+depth = 0.3
+material = ExtResource( 2 )
+
+[node name="Guard2" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 0.99752, 0.0703833, 0, -0.0703833, 0.99752, 0, 0.520341, -0.000646386 )
+width = 0.14
+height = 0.04
+depth = 0.34
+material = ExtResource( 2 )
+
+[node name="Handle2" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 0.999718, 0.0237517, 0, -0.0237517, 0.999718, 0, 0.679378, -0.00482494 )
+width = 0.06
+height = 1.0
+depth = 0.26
+material = ExtResource( 2 )
+
+[node name="Pommel2" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 0.999718, 0.0237517, 0, -0.0237517, 0.999718, 0, 1.23674, -0.0166513 )
+width = 0.14
+height = 0.15
+depth = 0.34
+material = ExtResource( 2 )
+
+[node name="Nut2" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 0.999718, 0.0237517, 0, -0.0237517, 0.999718, 0, 1.29994, -0.00879023 )
+width = 0.04
+height = 0.1
+depth = 0.04
+material = ExtResource( 2 )
+
+[node name="Sheathe3" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 0.997123, 0.0757967, 0, -0.0757967, 0.997123, 0, 0, 0, 1, 0.00856555, 0.495793, 0.369853 )
+width = 0.1
+height = 0.1
+depth = 0.3
+material = ExtResource( 2 )
+
+[node name="Guard3" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 0.997123, 0.0757967, 0, -0.0757967, 0.997123, 0, 0, 0, 1, 0.0131479, 0.556075, 0.369853 )
+width = 0.14
+height = 0.04
+depth = 0.34
+material = ExtResource( 2 )
+
+[node name="Handle3" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 0.997123, 0.0757141, -0.00353748, -0.0757967, 0.996037, -0.0465363, 0, 0.0466706, 0.99891, 0.0251948, 0.714555, 0.376879 )
+width = 0.06
+height = 1.0
+depth = 0.26
+material = ExtResource( 2 )
+
+[node name="Pommel3" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 0.997123, 0.0757141, -0.00353748, -0.0757967, 0.996037, -0.0465363, 0, 0.0466706, 0.99891, 0.0673992, 1.26976, 0.404311 )
+width = 0.14
+height = 0.15
+depth = 0.34
+material = ExtResource( 2 )
+
+[node name="Nut3" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 0.997123, 0.0757141, -0.00353748, -0.0757967, 0.996037, -0.0465363, 0, 0.0466706, 0.99891, 0.0721361, 1.33208, 0.416601 )
+width = 0.04
+height = 0.1
+depth = 0.04
+material = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( -0.3164, 0.387158, -1.91112e-07, 0.380008, 0.310557, 0.0956444, 0.074059, 0.0605237, -0.490767, 0.1, 0.1, 0 )
+shape = SubResource( 1 )

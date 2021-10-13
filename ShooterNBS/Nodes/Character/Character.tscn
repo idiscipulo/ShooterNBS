@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Nodes/Character/Character.gd" type="Script" id=1]
+[ext_resource path="res://Images/crosshair_default.png" type="Texture" id=2]
+[ext_resource path="res://Materials/Default.tres" type="Material" id=3]
+
+[sub_resource type="CapsuleMesh" id=1]
+material = ExtResource( 3 )
+mid_height = 3.0
+
+[sub_resource type="CapsuleShape" id=2]
+height = 3.0
+
+[node name="Character" type="KinematicBody"]
+script = ExtResource( 1 )
+jump = 7
+ads_fov = 85
+default_position = Vector3( 0, -0.5, -1 )
+ads_position = Vector3( 0, -0.25, -1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
+shape = SubResource( 2 )
+
+[node name="RotationHelper" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+
+[node name="Camera" type="Camera" parent="RotationHelper"]
+keep_aspect = 0
+
+[node name="TextureRect" type="TextureRect" parent="RotationHelper/Camera"]
+margin_left = 500.0
+margin_top = 288.0
+margin_right = 32.0
+margin_bottom = 32.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AimCast" type="RayCast" parent="RotationHelper/Camera"]
+enabled = true
+cast_to = Vector3( 0, 0, -1000 )
+
+[node name="ReachCast" type="RayCast" parent="RotationHelper/Camera"]
+enabled = true
+cast_to = Vector3( 0, 0, -5 )
+
+[node name="Hand" type="Spatial" parent="RotationHelper"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -1 )
