@@ -1,10 +1,30 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Nodes/Items/TripleKnife/TripleKnife.gd" type="Script" id=1]
-[ext_resource path="res://Materials/Default.tres" type="Material" id=2]
+[ext_resource path="res://Materials/Brass.tres" type="Material" id=2]
+[ext_resource path="res://Materials/BlackLeather.tres" type="Material" id=3]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.1, 1.1, 0.7 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Reload"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, -0.20966, 0 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.3
 
 [node name="TripleKnife" type="RigidBody" groups=[
 "Item",
@@ -12,6 +32,7 @@ extents = Vector3( 0.1, 1.1, 0.7 )
 can_sleep = false
 script = ExtResource( 1 )
 projectile_path = "res://Nodes/Items/TripleKnife/TripleKnifeProjectile.tscn"
+crosshair_path = "res://Images/crosshair_tripleknife.png"
 
 [node name="CSGCombiner" type="CSGCombiner" parent="."]
 transform = Transform( -0.3164, 0.387158, -1.91112e-07, 0.380008, 0.310557, 0.0956444, 0.074059, 0.0605237, -0.490767, 0, 0, 0 )
@@ -21,14 +42,14 @@ transform = Transform( 1, 0, 0, 0, 0.994094, 0.10852, 0, -0.10852, 0.994094, 0, 
 width = 0.2
 height = 1.2
 depth = 1.2
-material = ExtResource( 2 )
+material = ExtResource( 3 )
 
 [node name="Sheathe" type="CSGBox" parent="CSGCombiner"]
 transform = Transform( 0.999559, -0.0289341, -0.00670655, 0.0297011, 0.973744, 0.225702, 0, -0.225801, 0.974173, 0.0122902, 0.404731, -0.351556 )
 width = 0.1
 height = 0.1
 depth = 0.3
-material = ExtResource( 2 )
+material = ExtResource( 3 )
 
 [node name="Guard" type="CSGBox" parent="CSGCombiner"]
 transform = Transform( 0.999559, -0.0289341, -0.00670655, 0.0297011, 0.973744, 0.225702, 0, -0.225801, 0.974173, 0.010541, 0.463599, -0.365207 )
@@ -42,7 +63,7 @@ transform = Transform( 0.999559, -0.0292155, -0.00534888, 0.0297011, 0.983216, 0
 width = 0.06
 height = 1.0
 depth = 0.26
-material = ExtResource( 2 )
+material = ExtResource( 3 )
 
 [node name="Pommel" type="CSGBox" parent="CSGCombiner"]
 transform = Transform( 0.999559, -0.0292155, -0.00534888, 0.0297011, 0.983216, 0.180011, 0, -0.18009, 0.98365, -0.0103996, 1.16833, -0.493256 )
@@ -63,7 +84,7 @@ transform = Transform( 1, 0, 0, 0, 0.99752, 0.0703833, 0, -0.0703833, 0.99752, 0
 width = 0.1
 height = 0.1
 depth = 0.3
-material = ExtResource( 2 )
+material = ExtResource( 3 )
 
 [node name="Guard2" type="CSGBox" parent="CSGCombiner"]
 transform = Transform( 1, 0, 0, 0, 0.99752, 0.0703833, 0, -0.0703833, 0.99752, 0, 0.520341, -0.000646386 )
@@ -77,7 +98,7 @@ transform = Transform( 1, 0, 0, 0, 0.999718, 0.0237517, 0, -0.0237517, 0.999718,
 width = 0.06
 height = 1.0
 depth = 0.26
-material = ExtResource( 2 )
+material = ExtResource( 3 )
 
 [node name="Pommel2" type="CSGBox" parent="CSGCombiner"]
 transform = Transform( 1, 0, 0, 0, 0.999718, 0.0237517, 0, -0.0237517, 0.999718, 0, 1.23674, -0.0166513 )
@@ -98,7 +119,7 @@ transform = Transform( 0.997123, 0.0757967, 0, -0.0757967, 0.997123, 0, 0, 0, 1,
 width = 0.1
 height = 0.1
 depth = 0.3
-material = ExtResource( 2 )
+material = ExtResource( 3 )
 
 [node name="Guard3" type="CSGBox" parent="CSGCombiner"]
 transform = Transform( 0.997123, 0.0757967, 0, -0.0757967, 0.997123, 0, 0, 0, 1, 0.0131479, 0.556075, 0.369853 )
@@ -112,7 +133,7 @@ transform = Transform( 0.997123, 0.0757141, -0.00353748, -0.0757967, 0.996037, -
 width = 0.06
 height = 1.0
 depth = 0.26
-material = ExtResource( 2 )
+material = ExtResource( 3 )
 
 [node name="Pommel3" type="CSGBox" parent="CSGCombiner"]
 transform = Transform( 0.997123, 0.0757141, -0.00353748, -0.0757967, 0.996037, -0.0465363, 0, 0.0466706, 0.99891, 0.0673992, 1.26976, 0.404311 )
@@ -131,3 +152,7 @@ material = ExtResource( 2 )
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( -0.3164, 0.387158, -1.91112e-07, 0.380008, 0.310557, 0.0956444, 0.074059, 0.0605237, -0.490767, 0.1, 0.1, 0 )
 shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Reload = SubResource( 2 )
+anims/Throw = SubResource( 3 )

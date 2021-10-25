@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Nodes/Doodads/Geometry/Platform/Platform.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Nodes/Doodads/Geometry/FloatingPlatform/FloatingPlatform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Nodes/Character/Character.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Nodes/Doodads/ItemSpawner/ItemSpawner.tscn" type="PackedScene" id=4]
+
+
+
+[node name="Floor1" type="Spatial"]
+
+[node name="Platform" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 0.999132, -0.041649, 0, 0.041649, 0.999132, 0, 0.0617552, 0 )
+
+[node name="Platform2" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1, 0, -3.25841e-07, 4.20515e-08, 0.991637, -0.129055, 3.23116e-07, -0.129055, -0.991637, 0, 0.381008, 5.68976 )
+
+[node name="FloatingPlatform" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.805606, 0.18124, 0.564049, -0.148467, 0.983439, -0.10395, -0.573548, 0, 0.819172, -20.2438, 5.92967, 4.67308 )
+
+[node name="FloatingPlatform2" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.426693, 0.311015, 0.849236, 0.326742, 0.928599, -0.17591, -0.84331, 0.202421, -0.497848, -22.138, 6.52152, -0.299164 )
+
+[node name="FloatingPlatform3" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.468113, -0.148102, -0.871169, -0.0288312, -0.98789, 0.152452, -0.883198, -0.0462481, -0.466714, -3.56232, -15.4829, 8.8573 )
+
+[node name="FloatingPlatform4" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.813425, -0.0128735, -0.581528, 0.00222766, -0.999817, 0.0190174, -0.581666, 0.0141738, 0.813304, 14.8141, -16.4206, 13.581 )
+
+[node name="Character" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.441443, 0, -0.897289, 0, 1, 0, 0.897289, 0, -0.441443, -27.2551, 14.4825, -9.86298 )
+
+[node name="ItemSpawner" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.76018, -13.1877, 1.74103 )
+
+[node name="ItemSpawner2" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7564, 6.42512, 0 )
+
+[node name="ItemSpawner3" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.785317, 0, -0.619094, 0, 1, 0, 0.619094, 0, 0.785317, 15.9627, -14.7946, 14.8106 )
+wait_time = 1
+item_path = "res://Nodes/Doodads/Dummy/Dummy.tscn"
+
+[node name="ItemSpawner4" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.785317, 0, -0.619094, 0, 1, 0, 0.619094, 0, 0.785317, 14.8959, -14.7946, 18.3093 )
+wait_time = 1
+item_path = "res://Nodes/Doodads/Dummy/Dummy.tscn"
+
+[node name="ItemSpawner5" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.599736, 0, -0.800198, 0, 1, 0, 0.800198, 0, 0.599736, 20.2143, -14.7946, 13.2788 )
+wait_time = 1
+item_path = "res://Nodes/Doodads/Dummy/Dummy.tscn"

@@ -1,10 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Materials/Default.tres" type="Material" id=1]
+[ext_resource path="res://Materials/Brass.tres" type="Material" id=1]
 [ext_resource path="res://Nodes/Items/TripleKnife/TripleKnifeProjectile.gd" type="Script" id=2]
+[ext_resource path="res://Sounds/HitBreakingImpact.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Materials/BlackLeather.tres" type="Material" id=4]
+
+[sub_resource type="SpatialMaterial" id=1]
+params_diffuse_mode = 4
+params_specular_mode = 3
+metallic_specular = 0.0
+roughness = 0.0
 
 [sub_resource type="Animation" id=2]
-resource_name = "Throw"
 length = 0.3
 loop = true
 tracks/0/type = "value"
@@ -20,7 +27,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, -90 ), Vector3( 0, 90, -90 ), Vector3( 0, 180, -90 ), Vector3( 0, 270, -90 ) ]
 }
 
-[sub_resource type="BoxShape" id=1]
+[sub_resource type="BoxShape" id=3]
 extents = Vector3( 0.6, 0.04, 0.08 )
 
 [node name="TripleKnifeProjectile" type="Area"]
@@ -28,28 +35,31 @@ script = ExtResource( 2 )
 speed = 60
 
 [node name="CSGCombiner" type="CSGCombiner" parent="."]
-transform = Transform( -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 0, 0, 0.5, 0, 0, 0 )
+transform = Transform( -2.60627e-16, 5.96244e-09, -0.5, -0.5, -2.18557e-08, 0, -2.18557e-08, 0.5, 5.96244e-09, 0, 0, 0 )
 
 [node name="Guard" type="CSGBox" parent="CSGCombiner"]
-transform = Transform( 1, -1.16415e-10, -4.65661e-10, -1.16415e-10, 1, -2.98023e-08, 0, 1.49012e-08, 1, -7.04063e-08, 0.379853, 0.00608081 )
+transform = Transform( 1, -1.16415e-10, -4.65661e-10, -1.16415e-10, 1, -2.98023e-08, 0, 1.49012e-08, 1, -7.20029e-08, 0.416379, 0.00608081 )
 width = 0.14
 height = 0.04
 depth = 0.34
 material = ExtResource( 1 )
 
 [node name="Handle" type="CSGBox" parent="CSGCombiner"]
-transform = Transform( 1, -1.16415e-10, -4.65661e-10, -1.16415e-10, 1, -1.49012e-08, 0, 1.49012e-08, 1, -7.04062e-08, 0.731291, 0.0026131 )
+transform = Transform( 1, -1.16415e-10, -4.65661e-10, -1.16415e-10, 1, -1.49012e-08, 0, 1.49012e-08, 1, -7.06789e-08, 0.73753, 0.0026131 )
 width = 0.06
 height = 0.62
 depth = 0.26
-material = ExtResource( 1 )
+material = ExtResource( 4 )
 
 [node name="Blade" type="CSGBox" parent="CSGCombiner"]
 transform = Transform( 1, -1.16415e-10, -4.65661e-10, -1.16415e-10, 1, -1.49012e-08, 0, 1.49012e-08, 1, -2.27737e-08, -0.35102, -0.00494537 )
 width = 0.03
 height = 1.65
 depth = 0.2
-material = ExtResource( 1 )
+material = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Pommel" type="CSGBox" parent="CSGCombiner"]
 transform = Transform( 1, -1.74794e-10, -9.31323e-10, -2.32831e-10, 1, -2.98023e-08, 0, 2.98023e-08, 1, -7.04063e-08, 1.10868, 0.000805914 )
@@ -69,5 +79,9 @@ material = ExtResource( 1 )
 anims/Throw = SubResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 [connection signal="body_entered" from="." to="." method="_on_TripleKnife_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]

@@ -1,0 +1,12 @@
+[gd_resource type="SpatialMaterial" format=2]
+
+[resource]
+params_diffuse_mode = 4
+params_specular_mode = 3
+albedo_color = Color( 1, 0.792157, 0.176471, 1 )
+metallic_specular = 0.0
+roughness = 0.0
+ao_enabled = true
+ao_light_affect = 0.0
+ao_on_uv2 = false
+ao_texture_channel = 0

@@ -17,6 +17,7 @@ jump = 7
 ads_fov = 85
 default_position = Vector3( 0, -0.5, -1 )
 ads_position = Vector3( 0, -0.25, -1 )
+default_crosshair_path = "res://Images/crosshair_default.png"
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
@@ -34,10 +35,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 keep_aspect = 0
 
 [node name="TextureRect" type="TextureRect" parent="RotationHelper/Camera"]
-margin_left = 500.0
-margin_top = 288.0
-margin_right = 32.0
-margin_bottom = 32.0
+margin_left = 480.0
+margin_top = 268.0
+margin_right = 544.0
+margin_bottom = 332.0
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false

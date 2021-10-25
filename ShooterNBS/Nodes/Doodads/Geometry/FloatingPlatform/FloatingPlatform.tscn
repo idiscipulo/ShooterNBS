@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Materials/Default.tres" type="Material" id=1]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 6, 1, 6 )
+
+[node name="FloatingPlatform" type="RigidBody"]
+mode = 1
+
+[node name="CSGCombiner" type="CSGCombiner" parent="."]
+
+[node name="CSGBox" type="CSGBox" parent="CSGCombiner"]
+width = 12.0
+depth = 12.0
+material = ExtResource( 1 )
+
+[node name="CSGBox2" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 0.772193, -0.1564, -0.615838, 0.122765, 0.987693, -0.0969031, 0.623415, -0.000775733, 0.781891, 4.34455, 0, 6.45932 )
+width = 12.0
+depth = 12.0
+material = ExtResource( 1 )
+
+[node name="CSGBox3" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 0.932842, 0.0757619, 0.352231, -0.132727, 0.981147, 0.140475, -0.334948, -0.177792, 0.925311, 10.9735, 0, -0.263682 )
+width = 12.0
+depth = 12.0
+material = ExtResource( 1 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="."]
+transform = Transform( 0.772193, -0.1564, -0.615838, 0.122765, 0.987693, -0.0969031, 0.623415, -0.000775733, 0.781891, 4.34455, 0, 6.45932 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 0.932842, 0.0757619, 0.352231, -0.132727, 0.981147, 0.140475, -0.334948, -0.177792, 0.925311, 10.9735, 0, -0.263682 )
+shape = SubResource( 1 )

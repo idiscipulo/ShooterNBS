@@ -2,6 +2,8 @@ extends RigidBody
 
 signal detach
 
+export var wait_time = 3
+
 onready var anchor = $Anchor
 onready var respawn_timer = $RespawnTimer
 export var item_path : String
@@ -15,6 +17,8 @@ func _ready():
 	
 	item = item_parent.instance()
 	item.mode = MODE_KINEMATIC
+	
+	respawn_timer.wait_time = wait_time
 	
 	connect("detach", item, "_on_ItemSpawner_detach")
 	anchor.add_child(item)

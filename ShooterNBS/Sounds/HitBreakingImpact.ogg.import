@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/HitBreakingImpact.ogg-f45f19087ef2006854a894b87c92e926.oggstr"
+
+[deps]
+
+source_file="res://Sounds/HitBreakingImpact.ogg"
+dest_files=[ "res://.import/HitBreakingImpact.ogg-f45f19087ef2006854a894b87c92e926.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

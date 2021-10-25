@@ -9,6 +9,7 @@
 extents = Vector3( 0.75, 0.1, 0.75 )
 
 [node name="ItemSpawner" type="RigidBody"]
+mode = 1
 script = ExtResource( 2 )
 item_path = "res://Nodes/Items/TripleKnife/TripleKnife.tscn"
 

@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Nodes/Doodads/ItemSpawner/ItemSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Nodes/Character/Character.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Materials/Default.tres" type="Material" id=3]
-[ext_resource path="res://Nodes/Doodads/Platform/Platform.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Nodes/Doodads/Dummy/Dummy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Nodes/Doodads/Geometry/Platform/Platform.tscn" type="PackedScene" id=4]
+
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 100, 1, 100 )
@@ -47,12 +47,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38912, -8.2134 )
 
 [node name="ItemSpawner2" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4397, 6.5, -26 )
+item_path = "res://Nodes/Doodads/Dummy/Dummy.tscn"
 
 [node name="ItemSpawner3" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.48961, 6.5, -26 )
+item_path = "res://Nodes/Doodads/Dummy/Dummy.tscn"
+
+[node name="ItemSpawner4" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0785398, 6.5, -26 )
+item_path = "res://Nodes/Items/Pistol/Pistol.tscn"
 
 [node name="Platform" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -15 )
-
-[node name="Dummy" parent="." instance=ExtResource( 5 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 6.87481, -26.0303 )

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 6, 0.3, 6 )
+
+[node name="ShipRoom" type="StaticBody"]
+
+[node name="CSGCombiner" type="CSGCombiner" parent="."]
+
+[node name="Wood" type="CSGMesh" parent="CSGCombiner"]
+mesh = SubResource( 1 )

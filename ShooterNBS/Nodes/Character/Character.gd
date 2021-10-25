@@ -12,6 +12,7 @@ export var ads_fov = 80
 export var ads_speed = 20
 export var default_position : Vector3
 export var ads_position : Vector3
+export var default_crosshair_path : String
 
 var accel = accel_default
 
@@ -29,6 +30,7 @@ onready var hand = $RotationHelper/Hand
 onready var camera = $RotationHelper/Camera
 onready var aim_cast = $RotationHelper/Camera/AimCast
 onready var reach_cast = $RotationHelper/Camera/ReachCast
+onready var crosshair = $RotationHelper/Camera/TextureRect
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -76,7 +78,7 @@ func _process(delta):
 				target.rotation = hand.rotation
 				target.transform = transform.basis
 	
-	if Input.is_action_just_pressed("main_action"):
+	if Input.is_action_pressed("main_action"):
 		var held_item = hand.get_child(0)
 		
 		if held_item != null:
@@ -115,3 +117,13 @@ func _physics_process(delta):
 	movement = velocity + gravity_vec
 	
 	move_and_slide_with_snap(movement, snap, Vector3.UP)
+
+func set_crosshair(crosshair_path):
+	var texture
+	
+	if crosshair_path == null:
+		texture = load(default_crosshair_path)
+	else:
+		texture = load(crosshair_path)
+		
+	crosshair.texture = texture
