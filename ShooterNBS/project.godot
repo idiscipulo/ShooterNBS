@@ -9,19 +9,37 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "Entity",
+"language": "GDScript",
+"path": "res://Entities/Entity.gd"
+}, {
 "base": "",
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://git_api.gdns"
+}, {
+"base": "RigidBody",
+"class": "Item",
+"language": "GDScript",
+"path": "res://Items/Item.gd"
+}, {
+"base": "RigidBody",
+"class": "Shootable",
+"language": "GDScript",
+"path": "res://Items/Shootables/Shootable.gd"
 } ]
 _global_script_class_icons={
-"GitAPI": ""
+"Entity": "",
+"GitAPI": "",
+"Item": "",
+"Shootable": ""
 }
 
 [application]
 
 config/name="ShooterNBS_Final"
-run/main_scene="res://Scenes/TestWorld.tscn"
+run/main_scene="res://NewScenes/TestScene.tscn"
 config/icon="res://icon.png"
 
 [display]

@@ -5,7 +5,6 @@
 [ext_resource path="res://Materials/Default.tres" type="Material" id=3]
 [ext_resource path="res://Nodes/Doodads/Geometry/Platform/Platform.tscn" type="PackedScene" id=4]
 
-
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 100, 1, 100 )
 

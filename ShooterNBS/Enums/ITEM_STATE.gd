@@ -1,0 +1,6 @@
+enum {
+	DEFAULT,
+	DROPPED,
+	ANCHORED,
+	HELD
+}
