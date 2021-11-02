@@ -30,4 +30,6 @@ res
 .     |- EntityCharacter.tscn
 |- Scenes
 .  |- TestScene.tscn
+|- Enums
+.  |- ITEM_STATE.gd
 ```
