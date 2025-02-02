@@ -1,7 +1,5 @@
 # ShooterNBS
-
-## Documentation
-UML: https://yuml.me/studionbs/edit/shooternbs
+A 3D first-person shooter demo, created in Godot.
 
 ## Structure
 ```
